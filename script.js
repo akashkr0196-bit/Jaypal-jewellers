@@ -178,23 +178,37 @@ lightbox.addEventListener('click', (e) => {
     }
 });
 
-// Contact form
+// Contact form - Send directly to WhatsApp
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        const name = document.getElementById('custName').value.trim();
+        const phone = document.getElementById('custPhone').value.trim();
+        const enquiry = document.getElementById('custEnquiry').value;
+        const msg = document.getElementById('custMessage').value.trim() || 'No additional message';
+
         const btn = contactForm.querySelector('button[type="submit"]');
         const originalHTML = btn.innerHTML;
 
-        btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-        btn.style.background = '#27ae60';
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
+        btn.style.background = '#25D366';
+
+        // Format message for WhatsApp
+        const whatsappText = `*Namaste Jaypal Jewellers!* 👑%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Enquiry:* ${encodeURIComponent(enquiry)}%0A*Message:* ${encodeURIComponent(msg)}%0A%0A_Sent via jaypaljewellers.netlify.app_`;
+
+        const whatsappUrl = `https://wa.me/918674813075?text=${whatsappText}`;
 
         setTimeout(() => {
-            btn.innerHTML = originalHTML;
-            btn.style.background = '';
-            contactForm.reset();
-        }, 3000);
+            window.open(whatsappUrl, '_blank');
+            btn.innerHTML = '<i class="fas fa-check"></i> Redirected to WhatsApp!';
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.background = '';
+                contactForm.reset();
+            }, 3000);
+        }, 600);
     });
 }
 

@@ -544,35 +544,39 @@
 
                 <div class="contact-form-wrap">
                     <h3>Send us a Message</h3>
+                    <p style="color: var(--gray); font-size: 0.85rem; margin-top: -15px; margin-bottom: 20px;">
+                        <i class="fab fa-whatsapp" style="color: #25D366;"></i> Direct WhatsApp par enquiry bhejein
+                    </p>
                     <form class="contact-form" id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="text" placeholder="Aapka Naam" required>
+                                <input type="text" id="custName" placeholder="Aapka Naam" required>
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="form-group">
-                                <input type="tel" placeholder="Phone Number" required>
+                                <input type="tel" id="custPhone" placeholder="Phone Number" required>
                                 <i class="fas fa-phone"></i>
                             </div>
                         </div>
                         <div class="form-group">
-                            <select required>
-                                <option value="">Enquiry Type</option>
-                                <option value="gold">Gold Jewellery</option>
-                                <option value="silver">Silver Jewellery</option>
-                                <option value="diamond">Diamond Jewellery</option>
-                                <option value="repair">Repair & Service</option>
-                                <option value="exchange">Old Jewellery Exchange</option>
-                                <option value="other">Other</option>
+                            <select id="custEnquiry" required>
+                                <option value="">Enquiry Type Chunein</option>
+                                <option value="Gold Jewellery">Gold Jewellery</option>
+                                <option value="Silver Jewellery">Silver Jewellery</option>
+                                <option value="Diamond Jewellery">Diamond Jewellery</option>
+                                <option value="Jewellery Repair & Service">Jewellery Repair & Service</option>
+                                <option value="Cleaning & Polishing">Cleaning & Polishing</option>
+                                <option value="Old Jewellery Exchange">Old Jewellery Exchange</option>
+                                <option value="General Enquiry">Other Enquiry</option>
                             </select>
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Aapka Message..." rows="4"></textarea>
+                            <textarea id="custMessage" placeholder="Aapka Message ya Design ki details..." rows="4"></textarea>
                             <i class="fas fa-comment"></i>
                         </div>
                         <button type="submit" class="btn btn-gold btn-full">
-                            <i class="fas fa-paper-plane"></i> Send Message
+                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
                         </button>
                     </form>
                 </div>
